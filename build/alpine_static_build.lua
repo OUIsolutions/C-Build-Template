@@ -7,8 +7,6 @@ function alpine_static_build()
         volumes = {
             { RELEASE_DIR, "/release" }
         },
-        command =
-            "gcc --static " .. RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE ..
-            " -o /release/" .. STATIC_LINUX_BIN
+        command = ALPINE_COMPILATION
     })
 end

@@ -7,8 +7,6 @@ function windows_build()
         volumes = {
             { RELEASE_DIR, "/release" }
         },
-        command =
-            "i686-w64-mingw32-gcc --static " .. RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE ..
-            " -o /release/" .. WINDOWS_BIN
+        command = WINDOWS_COMPILATION
     })
 end
