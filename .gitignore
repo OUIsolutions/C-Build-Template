@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 release
+darwintypes.lua
 # Object files
 *.o
 *.ko

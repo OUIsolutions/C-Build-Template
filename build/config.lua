@@ -1,5 +1,6 @@
 PROJECT_NAME = "c_builder_example"
 CONTANIZER = "docker"
 START_POINT = "src/main.c"
-RELEASE_DIR = "release"
+RELEASE_DIR = "./release"
 OUTPUT_SINGLE_FILE = PROJECT_NAME .. ".c"
+STATIC_LINUX_BIN = PROJECT_NAME .. ".out"
