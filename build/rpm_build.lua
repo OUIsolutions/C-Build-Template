@@ -1,12 +1,14 @@
 function rpm_static_build()
-    local rpm_spec_rendered = darwin.candango.Render_text(
-        darwin.dtw.load_file("templates/rpm.spec")
-    )
-    if rpm_spec_rendered.exist_error then
-        error(rpm_spec_rendered.error_message)
-    end
+    darwin.dtw.copy_any_overwriting(RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE, ".cache/rpm/SOURCES/main.c")
+    local formmatted_rpm = RPM_SPEC_TEMPLATE
+    formmatted_rpm = string.gsub(formmatted_rpm, "PROJECT_NAME", PROJECT_NAME)
+    formmatted_rpm = string.gsub(formmatted_rpm, "VERSION", VERSION)
+    formmatted_rpm = string.gsub(formmatted_rpm, "SUMARY", SUMARY)
 
-    darwin.dtw.write_file("spec_cache.spec", rpm_spec_rendered.render_text)
+    formmatted_rpm = string.gsub(formmatted_rpm, "LICENSE", LICENSE)
+    formmatted_rpm = string.gsub(formmatted_rpm, "DESCRIPITION", DESCRIPITION)
+
+    darwin.dtw.write_file(".cache/rpm/SPECS/" .. PROJECT_NAME .. ".spec", formmatted_rpm)
 
     r = [[
     local image = darwin.ship.create_machine("fedora:latest")

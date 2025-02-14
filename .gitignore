@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+.cache/
 release
 darwintypes.lua
 # Object files
