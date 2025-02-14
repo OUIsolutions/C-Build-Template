@@ -21,3 +21,8 @@ to build all the packages, just fork these repo,  put all your code into **src**
 ```bash
 darwin run_blueprint build/ --mode folder
 ```
+## Configure build
+
+you can configure every aspect of the build in (Config)[/build/config.lua] , or if you prefer
+you can edit the build code into (Config)[/build/main.lua]  , check [Darwin](https://github.com/OUIsolutions/Darwin)
+documentation for these

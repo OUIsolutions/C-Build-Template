@@ -1,1 +1,5 @@
-CONTANIZER = 'docker'
+PROJECT_NAME = "c_builder_example"
+CONTANIZER = "docker"
+START_POINT = "src/main.c"
+RELEASE_DIR = "release"
+OUTPUT_SINGLE_FILE = PROJECT_NAME .. ".c"
