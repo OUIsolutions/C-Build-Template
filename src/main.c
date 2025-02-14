@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
             return 1;
         }
         result = num1 / num2;
-        printf("%.2f / %.2f = %.2f\n", num1, num2, result);
+        printf("%.2f / %.2f =%.2f\n", num1, num2, result);
     }
     else {
         printf("Unknown operation: %s\n", operation);
