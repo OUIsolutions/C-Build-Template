@@ -12,7 +12,7 @@ DESCRIPITION       = "your description"
 FULLNAME           = "your full name"
 EMAIL              = "youremail"
 SUMARY             = "your sumary "
-ARQUITETURE        = "noarch"
+ARQUITETURE        = "x86_64"
 YOUR_CHANGES       = "your changes"
 
 
@@ -29,6 +29,7 @@ Name:           PROJECT_NAME
 Version:        VERSION
 Release:        1%{?dist}
 Summary:        SUMARY
+Source0:        amalgamated.c
 
 License:        LICENSE
 URL:           PROJECT_URL
@@ -44,7 +45,6 @@ DESCRIPITION
 
 %prep
 
-%setup -q
 
 %build
 gcc  %{_sourcedir}/amalgamated.c -o project.out

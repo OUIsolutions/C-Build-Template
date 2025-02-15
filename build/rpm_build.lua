@@ -31,8 +31,8 @@ function rpm_static_build()
         volumes = {
             { ".cache/rpm/SOURCES", "/root/rpmbuild/SOURCES" },
             { ".cache/rpm/SPECS",   "/root/rpmbuild/SPECS" }
-
         },
+        command = "rpmbuild -ba ~/rpmbuild/SPECS/" .. PROJECT_NAME .. ".spec"
 
     })
 end
