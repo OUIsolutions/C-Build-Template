@@ -22,6 +22,7 @@ function rpm_static_build()
 
     local image = darwin.ship.create_machine("fedora:latest")
     image.add_comptime_command("sudo dnf install rpm-build rpmdevtools -y")
+    image.add_comptime_command("sudo dnf install gcc -y")
     image.add_comptime_command("rpmdev-setuptree")
     image.start({
         flags = {
