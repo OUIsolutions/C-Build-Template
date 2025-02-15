@@ -28,7 +28,9 @@ you can edit the build code into [Main Start](/build/main.lua)  , check [Darwin]
 documentation for these.
 
 
-## Getting type anotations
+## Extras
+### Type anotations
+
 to get type annotations just type:
 ```bash
 darwin drop_types
