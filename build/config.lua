@@ -1,4 +1,4 @@
-PROJECT_NAME       = "c_builder_example"
+PROJECT_NAME       = "calc"
 CONTANIZER         = "docker"
 START_POINT        = "src/main.c"
 RELEASE_DIR        = "./release"
@@ -31,7 +31,7 @@ Release:        1%{?dist}
 Summary:        SUMARY
 
 License:        LICENSE
-URL:           URL
+URL:           PROJECT_URL
 
 BuildRequires:  gcc, make
 Requires:       glibc
@@ -43,7 +43,6 @@ BuildArch:      ARQUITETURE
 DESCRIPITION
 
 %prep
-sed -i "s|@DATA@|$(LC_TIME=C date '+%a %b %d %Y')|" %{_sourcedir}/PROJECT_NAME.spec
 
 %setup -q
 
@@ -59,6 +58,6 @@ cp %{_builddir}/project.out   %{buildroot}/usr/local/bin/PROJECT_NAME
 /usr/local/bin/PROJECT_NAME
 
 %changelog
-* @DATA@ - FULLNAME EMAIL  - 1.0.0-1
+* TIMEZONE - FULLNAME EMAIL  - 1.0.0-1
 - YOUR_CHANGES
 ]]
