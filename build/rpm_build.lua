@@ -18,7 +18,7 @@ function rpm_static_build()
 
 
     darwin.dtw.write_file(".cache/rpm/SPECS/" .. PROJECT_NAME .. ".spec", formmatted_rpm)
-
+    os.execute("mkdir -p .cache/rpm/RPMS")
 
     local image = darwin.ship.create_machine("fedora:latest")
     image.add_comptime_command("sudo dnf install rpm-build rpmdevtools -y")
@@ -26,13 +26,20 @@ function rpm_static_build()
     image.add_comptime_command("rpmdev-setuptree")
     image.start({
         flags = {
-            "-it"
+            "-it "
         },
         volumes = {
             { ".cache/rpm/SOURCES", "/root/rpmbuild/SOURCES" },
-            { ".cache/rpm/SPECS",   "/root/rpmbuild/SPECS" }
+            { ".cache/rpm/SPECS",   "/root/rpmbuild/SPECS" },
+            { ".cache/rpm/RPMS",    "/root/rpmbuild/RPMS" }
         },
         command = "rpmbuild -ba ~/rpmbuild/SPECS/" .. PROJECT_NAME .. ".spec"
-
     })
+
+    local rpms = darwin.dtw.list_files_recursively(".cache/rpm/RPMS", true)
+    for _, file in ipairs(rpms) do
+        if darwin.dtw.ends_with(file, ".rpm") then
+            darwin.dtw.copy_any_overwriting(file, "release/" .. PROJECT_NAME .. ".rpm")
+        end
+    end
 end
