@@ -5,15 +5,19 @@ function alpine_static_build()
         return
     end
     alpine_static_build_done = true
+    os.execute("mkdir -p release")
 
-    local image              = darwin.ship.create_machine("alpine:latest")
+    local image = darwin.ship.create_machine("alpine:latest")
     image.add_comptime_command("apk update")
     image.add_comptime_command("apk add --no-cache gcc musl-dev curl")
 
     image.start({
         volumes = {
-            { RELEASE_DIR, "/release" }
+            { "./release", "/release" },
+            { "./src",     "/src" }
+
         },
-        command = ALPINE_COMPILATION
+        command = "gcc --static /src/main.c -o /release/alpine_static_bin.out"
+
     })
 end

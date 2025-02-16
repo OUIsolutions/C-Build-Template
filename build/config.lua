@@ -7,15 +7,11 @@ DESCRIPITION = "your description"
 FULLNAME     = "your full name"
 EMAIL        = "youremail"
 SUMARY       = "your sumary "
-ARQUITETURE  = "x86_64"
 YOUR_CHANGES = "your changes"
 
 
-ALPINE_COMPILATION  = "gcc --static " .. RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE ..
-    " -o /release/" .. STATIC_LINUX_BIN
 
-WINDOWS_COMPILATION = "i686-w64-mingw32-gcc --static " .. RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE ..
-    " -o /release/" .. WINDOWS_BIN
+WINDOWS_I32_COMPILATION = "i686-w64-mingw32-gcc --static /src/main.c -o /release/windowsi32.exe"
 
 
 

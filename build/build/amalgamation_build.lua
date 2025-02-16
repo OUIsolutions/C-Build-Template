@@ -5,6 +5,6 @@ function amalgamation_build()
     end
     alreay_amalamated_done = true
 
-    local amalgamation_result = darwin.camalgamator.generate_amalgamation(START_POINT)
+    local amalgamation_result = darwin.camalgamator.generate_amalgamation("src/main.c")
     darwin.dtw.write_file("release/amalgamation.c", amalgamation_result)
 end
