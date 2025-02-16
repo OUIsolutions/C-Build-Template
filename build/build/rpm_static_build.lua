@@ -18,7 +18,6 @@ Source0:        alpine_static_bin.out
 
 License:        LICENSE
 URL:           PROJECT_URL
-Requires:       glibc
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
 BuildArch:      x86_64
