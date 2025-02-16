@@ -19,7 +19,7 @@ and you also will also need to **PODMAN** or **DOCKER**  to build the packages
 to build all the packages, just fork these repo,  put all your code into **src** dir
 (note that your code must compile with **gcc --static main.c**) and build everything with:
 ```bash
-darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build
+darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windowsi64_build rpm_static_build
 
 ```
 
