@@ -19,10 +19,11 @@ and you also will also need to **PODMAN** or **DOCKER**  to build the packages
 to build all the packages, just fork these repo,  put all your code into **src** dir
 (note that your code must compile with **gcc --static main.c**) and build everything with:
 ```bash
-darwin run_blueprint build/ --mode folder
+darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build
 ```
-## Configure build
 
+
+## Configure build
 you can configure every aspect of the build in [Config](/build/config.lua) , or if you prefer
 you can edit the build code into [Main Start](/build/main.lua)  , check [Darwin](https://github.com/OUIsolutions/Darwin)
 documentation for these.

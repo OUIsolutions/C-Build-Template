@@ -11,9 +11,6 @@ YOUR_CHANGES = "your changes"
 
 
 
-WINDOWS_I32_COMPILATION = "i686-w64-mingw32-gcc --static /src/main.c -o /release/windowsi32.exe"
-
-
 
 RPM_SPEC_TEMPLATE = [[
 Name:           PROJECT_NAME

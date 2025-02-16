@@ -4,6 +4,7 @@ function windows_build()
         return
     end
     windows_build_done = false
+    os.execute("mkdir -p release")
 
     local image = darwin.ship.create_machine("debian:latest")
     image.add_comptime_command("apt-get update")
@@ -11,8 +12,9 @@ function windows_build()
 
     image.start({
         volumes = {
-            { RELEASE_DIR, "/release" }
+            { "./release", "/release" },
+            { "./src",     "/src" }
         },
-        command = WINDOWS_COMPILATION
+        command = "i686-w64-mingw32-gcc --static /src/main.c -o /release/windowsi32.exe"
     })
 end
