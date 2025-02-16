@@ -33,15 +33,13 @@ Description: SUMARY
     '.cache/debian_static_build/project/usr/local/bin/alpine_static_bin.out'
     )
 
-    if true then 
-        return
-    end 
+  
     local image = darwin.ship.create_machine("debian:latest")
 
     image.start({
         volumes = {
             { ".cache/debian_static_build/project",     "/project" }
         },
-        command = "i686-w64-mingw32-gcc --static /src/main.c -o /release/windowsi32.exe"
+        command = "dpkg-deb --build /project"
     })
 end 
