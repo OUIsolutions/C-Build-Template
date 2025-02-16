@@ -1,5 +1,5 @@
 local windows_build_done = false
-function windows_build()
+function windowsi32_build()
     if windows_build_done then
         return
     end

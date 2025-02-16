@@ -4,7 +4,8 @@ darwin = darwin
 local build_funcs = {
     amalgamation_build = amalgamation_build,
     alpine_static_build = alpine_static_build,
-    windows_build = windows_build
+    rpm_static_build = rpm_static_build,
+    windowsi32_build = windowsi32_build
 }
 
 function main()
