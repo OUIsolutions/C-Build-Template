@@ -1,6 +1,10 @@
+local alreay_amalamated_done = false
 function amalgamation_build()
-    darwin.dtw.remove_any(RELEASE_DIR)
-    darwin.dtw.remove_any(".cache")
+    if alreay_amalamated_done then
+        return
+    end
+    alreay_amalamated_done = true
+
     local amalgamation_result = darwin.camalgamator.generate_amalgamation(START_POINT)
-    darwin.dtw.write_file(RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE, amalgamation_result)
+    darwin.dtw.write_file("release/amalgamation.c", amalgamation_result)
 end

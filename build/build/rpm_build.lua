@@ -1,4 +1,10 @@
+local rpm_static_build_done = false
 function rpm_static_build()
+    if rpm_static_build_done then
+        return
+    end
+    rpm_static_build_done = true
+
     darwin.dtw.copy_any_overwriting(RELEASE_DIR .. "/" .. OUTPUT_SINGLE_FILE, ".cache/rpm/SOURCES/amalgamated.c")
     local formmatted_rpm = RPM_SPEC_TEMPLATE
     formmatted_rpm = string.gsub(formmatted_rpm, "PROJECT_NAME", PROJECT_NAME)

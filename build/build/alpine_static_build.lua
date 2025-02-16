@@ -1,5 +1,12 @@
+local alpine_static_build_done = false
+
 function alpine_static_build()
-    local image = darwin.ship.create_machine("alpine:latest")
+    if alpine_static_build_done then
+        return
+    end
+    alpine_static_build_done = true
+
+    local image              = darwin.ship.create_machine("alpine:latest")
     image.add_comptime_command("apk update")
     image.add_comptime_command("apk add --no-cache gcc musl-dev curl")
 
