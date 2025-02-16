@@ -3,6 +3,15 @@
 #include <string.h>
 
 int main(int argc, char *argv[]) {
+
+    for(int i = 1; i <argc; i++){
+        char *current = argv[i];
+        if(strcmp(current, "--version") == 0){
+            printf("calc 0.0.1\n");
+            return 0;
+        }
+    }
+
     // Check if there are enough arguments
     if (argc != 4) {
         printf("Usage: calc <operation> <num1> <num2>\n");
