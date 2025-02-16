@@ -3,7 +3,7 @@ function windowsi64_build()
     if windows_build_done then
         return
     end
-    windows_build_done = false
+    windows_build_done = true
     os.execute("mkdir -p release")
 
     local image = darwin.ship.create_machine("debian:latest")
