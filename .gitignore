@@ -3,6 +3,7 @@
 .cache/
 release
 darwintypes.lua
+teste_debian.lua
 # Object files
 *.o
 *.ko
