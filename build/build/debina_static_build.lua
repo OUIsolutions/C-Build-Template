@@ -1,4 +1,4 @@
-local debian_static_build_done =  false
+local debian_static_build_done = false
 function debian_static_build()
     if debian_static_build_done then
         return
@@ -12,7 +12,7 @@ Package: PROJECT_NAME
 Version: VERSION
 Section: base
 Priority: optional
-Architecture: x86_64
+Architecture: amd64
 Depends: libc6 (>= 2.27)
 Maintainer: FULLNAME EMAIL
 Description: SUMARY
@@ -26,20 +26,29 @@ Description: SUMARY
 
 
     darwin.dtw.write_file(".cache/debian_static_build/project/DEBIAN/control", control)
- 
-    darwin.dtw.copy_any_overwriting(
-        
-    "release/alpine_static_bin.out",
-    '.cache/debian_static_build/project/usr/local/bin/alpine_static_bin.out'
-    )
 
-  
+    darwin.dtw.copy_any_overwriting(
+
+        "release/alpine_static_bin.out",
+        '.cache/debian_static_build/project/usr/local/bin/' .. PROJECT_NAME
+    )
+    local POST_INSTALL = [[
+            #!/bin/sh
+            set -e
+            chmod +x /usr/local/bin/PROJECT_NAME
+    ]]
+    POST_INSTALL = string.gsub(POST_INSTALL, "PROJECT_NAME", PROJECT_NAME)
+    darwin.dtw.write_file(".cache/debian_static_build/project/DEBIAN/postinst", POST_INSTALL)
+
     local image = darwin.ship.create_machine("debian:latest")
 
     image.start({
+        flags = { "-it" },
         volumes = {
-            { ".cache/debian_static_build/project",     "/project" }
+            { ".cache/debian_static_build/project", "/project" },
+            { "./release",                          "/release" },
+
         },
-        command = "dpkg-deb --build /project"
+        command = "dpkg-deb --build /project /release/debian_static.deb"
     })
-end 
+end
