@@ -32,10 +32,11 @@ Description: SUMARY
         "release/alpine_static_bin.out",
         '.cache/debian_static_build/project/usr/local/bin/' .. PROJECT_NAME
     )
-    local POST_INSTALL = [[
-            #!/bin/sh
-            set -e
-            chmod +x /usr/local/bin/PROJECT_NAME
+    local POST_INSTALL = 
+    [[
+#!/bin/sh
+set -e
+chmod 755 /usr/local/bin/PROJECT_NAME
     ]]
     POST_INSTALL = string.gsub(POST_INSTALL, "PROJECT_NAME", PROJECT_NAME)
     darwin.dtw.write_file(".cache/debian_static_build/project/DEBIAN/postinst", POST_INSTALL)
