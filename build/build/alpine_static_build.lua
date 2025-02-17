@@ -8,6 +8,7 @@ function alpine_static_build()
     os.execute("mkdir -p release")
 
     local image = darwin.ship.create_machine("alpine:latest")
+    image.provider = CONTANIZER
     image.add_comptime_command("apk update")
     image.add_comptime_command("apk add --no-cache gcc musl-dev curl")
 

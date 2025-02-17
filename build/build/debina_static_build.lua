@@ -44,6 +44,7 @@ Description: SUMARY
     darwin.dtw.write_file(".cache/debian_static_build/project/DEBIAN/postinst", POST_INSTALL)
 
     local image = darwin.ship.create_machine("debian:latest")
+    image.provider = CONTANIZER
 
     image.start({
         flags = { "-it" },

@@ -7,6 +7,7 @@ function windowsi32_build()
     os.execute("mkdir -p release")
 
     local image = darwin.ship.create_machine("debian:latest")
+    image.provider = CONTANIZER
     image.add_comptime_command("apt-get update")
     image.add_comptime_command("apt-get -y install mingw-w64")
 
