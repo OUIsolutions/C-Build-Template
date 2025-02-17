@@ -1,17 +1,10 @@
 ---@class Darwin
 darwin = darwin
 
-local build_funcs = {
-    amalgamation_build = amalgamation_build,
-    alpine_static_build = alpine_static_build,
-    rpm_static_build = rpm_static_build,
-    windowsi32_build = windowsi32_build,
-    windowsi64_build = windowsi64_build,
-    debian_static_build = debian_static_build,
-
-}
 
 function main()
+    local build_funcs  = create_build_funcs()
+    
     darwin.dtw.remove_any("release")
     darwin.dtw.remove_any(".cache")
     local i = 1

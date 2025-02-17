@@ -40,11 +40,5 @@ by darwin runtine check [Darwin Api Usage](https://github.com/OUIsolutions/Darwi
 | rpm_static_build   | release/rpm_static.rpm  | a rpm package with musl                 |[Function implementation](/build/build/rpm_static_build.lua)      |
 | debian_static_build| release/debian_static.deb| a debian package with musl              |[Function implementation](/build/build/debian_static_build.lua)   |
 
-
-## Extras
-### Type anotations
-
-to get type annotations just type:
-```bash
-darwin drop_types
-```
+## Add your own build
+to add your build flag just create a function in [build](/build/build) dir and add it:[Build Funcs](/build/build_funcs.lua)
