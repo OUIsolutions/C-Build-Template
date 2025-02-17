@@ -46,23 +46,3 @@ to add your build flag just create a function in [build](/build/build) dir and a
 
 ### Testting 
 
-#### Fedora Container
-for testing a fedora container you can test with:
-```bash
- darwin run_blueprint testage/fedora.lua
- ```
-
-(Note that you can edit the contanizer in the [Fedora starter](/testage/fedora.lua) in )
-```lua
-image.provider = "docker"
-```
-
-#### Debian Container
-for testing a debian container you can test with:
-```bash
- darwin run_blueprint testage/debian.lua
- ```
-(Note that you can edit the contanizer in the [Debian starter](/testage/debian.lua) in )
-```lua
-image.provider = "docker"
-```

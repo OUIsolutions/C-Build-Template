@@ -3,6 +3,11 @@ darwin = darwin
 
 
 function main()
+
+
+    if darwin.argv.one_of_args_exist("test") then
+        
+    end 
     local build_funcs  = create_build_funcs()
     
     darwin.dtw.remove_any("release")
