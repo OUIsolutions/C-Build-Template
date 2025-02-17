@@ -34,9 +34,11 @@ Description: SUMARY
     )
     local POST_INSTALL = 
     [[
-#!/bin/sh
-set -e
-chmod 755 /usr/local/bin/PROJECT_NAME
+        #!/bin/sh
+        set -e
+        chmod 755 /usr/local/bin/PROJECT_NAME
+        exit 0
+
     ]]
     POST_INSTALL = string.gsub(POST_INSTALL, "PROJECT_NAME", PROJECT_NAME)
     darwin.dtw.write_file(".cache/debian_static_build/project/DEBIAN/postinst", POST_INSTALL)
@@ -50,6 +52,6 @@ chmod 755 /usr/local/bin/PROJECT_NAME
             { "./release",                          "/release" },
 
         },
-        command = "dpkg-deb --build /project /release/debian_static.deb"
+        command = "chmod 755 /project/DEBIAN/postinst &&  dpkg-deb --build /project /release/debian_static.deb"
     })
 end
