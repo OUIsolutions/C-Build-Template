@@ -40,5 +40,29 @@ by darwin runtine check [Darwin Api Usage](https://github.com/OUIsolutions/Darwi
 | rpm_static_build   | release/rpm_static.rpm  | a rpm package with musl                 |[Function implementation](/build/build/rpm_static_build.lua)      |
 | debian_static_build| release/debian_static.deb| a debian package with musl              |[Function implementation](/build/build/debian_static_build.lua)   |
 
-## Add your own build
+## Extras 
+### Add your build flag
 to add your build flag just create a function in [build](/build/build) dir and add it:[Build Funcs](/build/build_funcs.lua)
+
+### Testting 
+
+#### Fedora Container
+for testing a fedora container you can test with:
+```bash
+ darwin run_blueprint testage/fedora.lua
+ ```
+
+(Note that you can edit the contanizer in the [Fedora starter](/testage/fedora.lua) in )
+```lua
+image.provider = "docker"
+```
+
+#### Debian Container
+for testing a debian container you can test with:
+```bash
+ darwin run_blueprint testage/debian.lua
+ ```
+(Note that you can edit the contanizer in the [Debian starter](/testage/debian.lua) in )
+```lua
+image.provider = "docker"
+```
