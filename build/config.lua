@@ -1,5 +1,5 @@
 PROJECT_NAME = "project"
-CONTANIZER   = "podman"
+CONTANIZER   = "docker"
 VERSION      = "0.1.0"
 LICENSE      = "MIT"
 URL          = "yor_domain.com"
