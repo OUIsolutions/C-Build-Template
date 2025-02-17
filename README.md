@@ -46,3 +46,8 @@ to add your build flag just create a function in [build](/build/build) dir and a
 
 ### Testting 
 
+you can test all linux distributions with 
+```bash
+darwin run_blueprint build  --mode folder test_container <your_distro>
+```
+note that the dir "**release** will be mounted on **/release** on the container
