@@ -1,6 +1,6 @@
-PROJECT_NAME = "calc"
+PROJECT_NAME = "project"
 CONTANIZER   = "docker"
-VERSION      = "1.0.0"
+VERSION      = "0.1.0"
 LICENSE      = "MIT"
 URL          = "yor_domain.com"
 DESCRIPITION = "your description"
